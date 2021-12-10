@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-ctx.strokeStyle = "blue";
+ctx.strokeStyle = "#bada55";
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
 
@@ -18,15 +18,15 @@ function draw(e) {
   ctx.beginPath();
   ctx.moveTo(lastX, lastY);
   ctx.lineTo(e.offsetX, e.offsetY);
-  ctx.strokeStyle();
+  ctx.stroke();
   [lastX, lastY] = [e.offsetX, e.offsetY];
 }
-
-canvas.addEventListener("mousemove", draw);
 
 canvas.addEventListener("mousedown", (e) => {
   isDraw = true;
   [lastX, lastY] = [e.offsetX, e.offsetY];
 });
+
+canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mouseup", () => (isDraw = false));
 canvas.addEventListener("mouseout", () => (isDraw = false));
